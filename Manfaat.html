@@ -1,0 +1,160 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manfaat</title>
+    <style>
+        *,
+        html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b1329;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container-navbar {
+            height: 10vh;
+        }
+
+        .ul-navbar {
+            list-style-type: none;
+            padding: 12px;
+            margin: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hr-navbar {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, gray, transparent);
+            margin-bottom: 20px;
+        }
+
+        .home-navbar {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .home-navbar:hover {
+            background-color: #38bdf8;
+            border-radius: 5px;
+            transition-duration: 1s;
+            transform: scale(1.2);
+        }
+
+        /* CONTAINER UTAMA: Menyatukan semua konten agar berurutan ke bawah */
+        .main-content0 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            min-height: 80vh;
+            padding: 20px;
+        }
+
+        /* Kotak Judul Utama (Manfaat AI) */
+        .container-content {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            align-self: center;
+        }
+
+        .h2-content {
+            color: #38bdf8;
+            text-align: center;
+        }
+
+        /* Kotak Konten (Analisis Data...) */
+        .container-content1 {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            width: 100%;
+            max-width: 350px; /* Diubah menjadi 700px agar lebarnya sama persis dengan kotak judul di atasnya */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* MENGUBAH TEKS JADI RATA KIRI */
+        .h3-content1 {
+            color: #38bdf8;
+            text-align: left; /* Teks judul konten rata kiri */
+        }
+
+        .hr-content1 {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, #38bdf8, transparent);
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .p-content1 {
+            color: #d9dddc;
+            text-align: justify;
+            line-height: 1.5; /* Ditingkatkan sedikit dari 1.15 agar lebih nyaman dibaca */
+            font-weight: 300;
+        }
+
+        .container-footer {
+            background-color: #070d19;
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .p-footer {
+            color: #d9dddc;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar Start -->
+    <div class="container-navbar">
+        <ul class="ul-navbar">
+            <li class="navbar">  
+                <a href="Definisi.html" class="home-navbar">🏠</a>
+            </li>
+            <li class="li-navbar">🌙</li>
+        </ul>
+        <hr class="hr-navbar">
+    </div>
+    <!-- Navigation Bar End -->
+
+    <!-- Content 0 Start -->
+    <main class="main-content0">
+        <!-- Kotak Judul Utama -->
+        <div class="container-content">
+            <h2 class="h2-content">Manfaat AI</h2>
+        </div>
+
+        <!-- Content 1 -->
+        <div class="container-content1">
+            <h3 class="h3-content1">Analisis Data secara Cepat dan Akurat</h3>
+            <hr class="hr-content1">
+            <p class="p-content1">AI mampu memproses kumpulan data skala besar (big data) dalam hitungan detik untuk menemukan pola, tren, dan anomali yang sulit dideteksi manusia. Hal ini meminimalkan risiko human error serta mempercepat pengambilan keputusan berbasis data (data-driven decision making).</p>
+        </div>
+    </main>
+    <!-- Content 0 End -->
+
+    <!-- Footer Start -->
+    <div class="container-footer">
+        <p class="p-footer">&copy; 2026 Kelompok 7. All rights reserved.</p>
+    </div>
+</body>
+</html>
