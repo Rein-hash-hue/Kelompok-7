@@ -1,146 +1,162 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Masalah</title>
-        <style>
-*,
-html{
-    margin:0;
-    padding:0;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masalah Utama</title>
+    <style>
+        *,
+        html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body{
-    background-color:#0b1329;
-}
+        body {
+            background-color: #0b1329;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+        }
 
-.container-navbar{
-    height:10vh;
-}
+        .container-navbar {
+            height: 10vh;
+        }
 
-.ul-navbar{
-    list-style-type:none;
-    padding:12px;
-    margin:5px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+        .ul-navbar {
+            list-style-type: none;
+            padding: 12px;
+            margin: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.hr-navbar{
-    border:none;
-    height: 1px;
-    background: linear-gradient(90deg, gray);
-    margin-bottom: 20px;
-}
+        .hr-navbar {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, gray, transparent);
+            margin-bottom: 20px;
+        }
 
-.home-navbar:hover{
-    background-color: #38bdf8;
-    border-radius:5px;
-    transition-duration: 1s;
-}
+        .home-navbar {
+            text-decoration: none;
+            display: inline-block;
+        }
 
-.main-content{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:80vh;
-}
+        .home-navbar:hover {
+            background-color: #38bdf8;
+            border-radius: 5px;
+            transition-duration: 1s;
+            transform: scale(1.2);
+        }
 
-.container-content{
-    background: rgba(30, 41, 59, 0.7);
-    backdrop-filter: blur(12px);
-    border-color:rgba(255, 255, 255, 0.1);
-    border-radius:16px;
-    padding:32px;
-    width:100%;
-    max-width:700px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
+        .main-content0 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            min-height: 80vh;
+            padding: 20px;
+        }
 
-.h2-content{
-    color:#38bdf8;
-    text-align:center;
-}
+        .container-content {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            width: 100%;
+            max-width: 720px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
 
-.hr-content{
-    border:none;
-    height: 2px;
-    background: linear-gradient(90deg, #38bdf8, transparent);
-    margin-bottom: 20px;
-    margin-top:20px;
-}
+        .h2-content {
+            color: #38bdf8;
+            text-align: center;
+        }
 
-.p-content{
-    color:#d9dddc;
-    text-align:justify;
-    line-height:1.15;
-    font-weight:300;
-}
+        .container-baris {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 1400px;
+        }
 
-.ul-content{
-    display: flex;
-    justify-content:space-evenly;
-    list-style-type:none;
-    color:white
-}
+        .container-content1 {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            width: 700px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
 
-.a-content{
-    color:white;
-    text-decoration:none;
-}
+        .h3-content1 {
+            color: #38bdf8;
+            text-align: center;
+        }
 
-.container-footer{
-    background-color:#070d19;
-    height:10vh;
-}
+        .hr-content1 {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, #38bdf8, transparent);
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
 
-.p-footer{
-    color:#d9dddc;
-    text-align:center;
-    padding:23px;
-}
-            body{
-                font-family:poppins;
-            }
-        </style>
-    </head>
-    <body>
-        <!-- Navigation Bar Start -->
-        <div class="container-navbar">
-            <ul class="ul-navbar">
-                <li class="navbar">  
-                    <a href="index.html" class="home-navbar">
-                        🏠
-                    </a>
-                </li>
-                <li class="li-navbar">🌙</li>
-            </ul>
-            <hr class="hr-navbar">
+        .p-content1 {
+            color: #d9dddc;
+            text-align: justify;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        .container-footer {
+            background-color: #070d19;
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .p-footer {
+            color: #d9dddc;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar Start -->
+    <div class="container-navbar">
+        <ul class="ul-navbar">
+            <li class="navbar">  
+                <a href="Definisi.html" class="home-navbar">🏠</a>
+            </li>
+            <li class="li-navbar">🌙</li>
+        </ul>
+        <hr class="hr-navbar">
+    </div>
+    <!-- Navigation Bar End -->
+
+    <!-- Content Start -->
+    <main class="main-content0">
+        <div class="container-content">
+            <h2 class="h2-content">Masalah Utama AI</h2>
         </div>
-        <!-- Navigation Bar End -->
-
-        <!-- Content Start -->
-         <main class="main-content">
-         <div class="container-content">
-            <h2 class="h2-content">Masalah AI</h2>
-            <hr class="hr-content">
-            <p class="p-content">AI atau Artificial Intelligence adalah cabang ilmu komputer yang berfokus pada pembuatan sistem yang dapat melakukan tugas-tugas yang biasanya dilakukan oleh manusia, seperti belajar, berpikir, dan memecahkan masalah.</p>
-            <hr class="hr-content">
-            <ul class="ul-content">
-                <li>
-                    <a>
-                    Masalah
-                    </a>
-                </li>
-            </ul>
-         </div>
-         </main>
-         <!-- Content End -->
-
-         <!-- Footer Start -->
-         <div class="container-footer">
-            <p class="p-footer">&copy; 2026 Kelompok 7. All rights reserved.</p>
-         </div>
-    </body>
+        <!-- Content 1 -->
+            <div class="container-content1">
+                <h3 class="h3-content1">Konsumsi Energi Listrik dan Air yang Besar</h3>
+            </div>
+    </main>
+        <!-- Content 1 End -->
+    <!-- Content End -->
+        
+    <!-- Footer Start -->
+    <div class="container-footer">
+        <p class="p-footer">&copy; 2026 Kelompok 7. All rights reserved.</p>
+    </div>
+    <!-- Footer End -->
+</body>
 </html>
