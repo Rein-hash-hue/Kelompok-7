@@ -14,10 +14,11 @@
         body {
             background-color: #0b1329;
             font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
         }
 
         .container-navbar {
-            min-height: 10vh;
+            height: 10vh;
         }
 
         .ul-navbar {
@@ -51,7 +52,7 @@
         .main-content0 {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             gap: 24px;
             min-height: 80vh;
             padding: 20px;
@@ -64,14 +65,22 @@
             border-radius: 16px;
             padding: 32px;
             width: 100%;
-            max-width: 700px;
+            max-width: 720px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            align-self: center;
         }
 
         .h2-content {
             color: #38bdf8;
             text-align: center;
+        }
+
+        .container-baris {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 1400px;
         }
 
         .container-content1 {
@@ -81,13 +90,12 @@
             border-radius: 16px;
             padding: 32px;
             width: 100%;
-            max-width: 350px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .h3-content1 {
             color: #38bdf8;
-            text-align: left;
+            text-align: center;
         }
 
         .hr-content1 {
@@ -101,13 +109,43 @@
         .p-content1 {
             color: #d9dddc;
             text-align: justify;
-            line-height: 1.5; 
+            line-height: 1.5;
             font-weight: 300;
+        }
+
+        .container-content2 {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .container-content3 {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .container-content4{
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .container-footer {
             background-color: #070d19;
-            min-height: 10vh;
+            height: 10vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -124,7 +162,7 @@
     <div class="container-navbar">
         <ul class="ul-navbar">
             <li class="navbar">  
-                <a href="index.html" class="home-navbar">🏠</a>
+                <a href="Definisi.html" class="home-navbar">🏠</a>
             </li>
             <li class="li-navbar">🌙</li>
         </ul>
@@ -132,25 +170,48 @@
     </div>
     <!-- Navigation Bar End -->
 
-    <!-- Content 0 Start -->
+    <!-- Content Start -->
     <main class="main-content0">
-        <!-- Kotak Judul Utama -->
         <div class="container-content">
             <h2 class="h2-content">Manfaat AI</h2>
         </div>
-
+        <div class="container-baris">
         <!-- Content 1 -->
-        <div class="container-content1">
-            <h3 class="h3-content1">Analisis Data secara Cepat dan Akurat</h3>
-            <hr class="hr-content1">
-            <p class="p-content1">AI mampu memproses kumpulan data skala besar (big data) dalam hitungan detik untuk menemukan pola, tren, dan anomali yang sulit dideteksi manusia. Hal ini meminimalkan risiko human error serta mempercepat pengambilan keputusan berbasis data (data-driven decision making).</p>
+            <div class="container-content1">
+                <h3 class="h3-content1">Analisis Data secara Cepat dan Akurat</h3>
+                <hr class="hr-content1">
+                <p class="p-content1">AI mampu memproses kumpulan data skala besar (big data) dalam hitungan detik untuk menemukan pola, tren, dan anomali yang sulit dideteksi manusia. Hal ini meminimalkan risiko human error serta mempercepat pengambilan keputusan berbasis data (data-driven decision making).</p>
+            </div>
+        <!-- Content 1 End -->
+        <!-- Content 2 -->
+            <div class="container-content2">
+                <h3 class="h3-content1">Otomisasi Tugas</h3>
+                <h3 class="h3-content1">Berulang</h3>
+                <hr class="hr-content1">
+                <p class="p-content1">AI dapat mengambil alih pekerjaan administratif atau rutin yang bersifat monoton, seperti menyortir email, menginput data, atau menjadwalkan agenda. Hasilnya, produktivitas meningkat dan manusia bisa fokus pada pekerjaan yang membutuhkan kreativitas serta strategi.</p>
+            </div>
+        <!-- Content 2 End -->
+        <!-- Content 3 -->
+            <div class="container-content3">
+                <h3 class="h3-content1">Peningkatan Pengalaman Pengguna</h3>
+                <hr class="hr-content1">
+                <p class="p-content1">AI mempelajari preferensi, kebiasaan, dan riwayat perilaku setiap pengguna. Dengan data tersebut, AI dapat memberikan rekomendasi produk, konten, atau layanan yang spesifik dan sesuai dengan kebutuhan unik masing-masing individu.</p>
+            </div>
+        <!-- Content 3 End -->
+        <!-- Content 4 -->
+            <div class="container-content4">
+                <h3 class="h3-content1">Efisiensi Operasional Tanpa Henti</h3>
+                <hr class="hr-content1">
+                <p class="p-content1">Berbeda dengan tenaga kerja manusia yang membutuhkan istirahat, sistem AI dapat terus beroperasi secara konstan tanpa mengalami kelelahan. Ini memastikan layanan pelanggan (seperti chatbot) atau sistem pengawasan produksi tetap berjalan optimal kapan saja.</p>
+            </div>
         </div>
     </main>
-    <!-- Content 0 End -->
+    <!-- Content End -->
 
     <!-- Footer Start -->
     <div class="container-footer">
         <p class="p-footer">&copy; 2026 Kelompok 7. All rights reserved.</p>
     </div>
+    <!-- Footer End -->
 </body>
 </html>
