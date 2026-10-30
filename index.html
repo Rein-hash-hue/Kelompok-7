@@ -1,125 +1,241 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Definisi</title>
-        <style>
-*,
-html{
-    margin:0;
-    padding:0;
-}
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Definisi</title>
+    <!-- Import Google Font: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset CSS Default */
+        *,
+        html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body{
-    background-color:#0b1329;
-}
+        /* Body & Background Effect */
+        body {
+            background-color: #0b1329;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(99, 102, 241, 0.12) 0%, transparent 40%);
+            background-attachment: fixed;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #d9dddc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
 
-.container-navbar{
-    height:10vh;
-}
+        /* Navbar Layout & Style */
+        .container-navbar {
+            min-height: 10vh;
+            padding: 0 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-.ul-navbar{
-    list-style-type:none;
-    padding:12px;
-    margin:5px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+        .ul-navbar {
+            list-style-type: none;
+            padding: 15px 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.hr-navbar{
-    border:none;
-    height: 1px;
-    background: linear-gradient(90deg, gray);
-    margin-bottom: 20px;
-}
+        .navbar, .li-navbar {
+            font-size: 1.5rem;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+            display: inline-block;
+            padding: 4px;
+        }
 
-.main-content{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:80vh;
-}
+        .navbar:hover, .li-navbar:hover {
+            transform: scale(1.25) rotate(5deg);
+            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.8));
+        }
 
-.container-content{
-    background: rgba(30, 41, 59, 0.7);
-    backdrop-filter: blur(12px);
-    border-color:rgba(255, 255, 255, 0.1);
-    border-radius:16px;
-    padding:32px;
-    width:100%;
-    max-width:700px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
+        .hr-navbar {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);
+            margin-bottom: 0;
+        }
 
-.h2-content{
-    color:#38bdf8;
-    text-align:center;
-}
+        /* Main Content & Layout */
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
 
-.hr-content{
-    border:none;
-    height: 2px;
-    background: linear-gradient(90deg, #38bdf8, transparent);
-    margin-bottom: 20px;
-    margin-top:20px;
-}
+        /* Glassmorphism Card Container */
+        .container-content {
+            background: rgba(30, 41, 59, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 720px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.p-content{
-    color:#d9dddc;
-    text-align:justify;
-    line-height:1.15;
-    font-weight:300;
-}
+        .container-content:hover {
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
 
-.ul-content{
-    display: flex;
-    justify-content:space-evenly;
-    list-style-type:none;
-    color:white
-}
+        /* Title Style */
+        .h2-content {
+            color: #38bdf8;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
 
-.a-content{
-    color:white;
-    text-decoration:none;
-}
+        /* Divider inside Content */
+        .hr-content {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+            margin: 24px 0;
+            opacity: 0.8;
+        }
 
-.a-content:hover{
-    transform:scale(1.2);
-    background-color:#38bdf8;
-    border-radius:5px;
-    transition-duration: 1s;
-}
+        /* Paragraph Styling */
+        .p-content {
+            color: #e2e8f0;
+            text-align: justify;
+            line-height: 1.7;
+            font-weight: 300;
+            font-size: 0.98rem;
+            margin-bottom: 14px;
+        }
 
-.container-footer{
-    background-color:#070d19;
-    height:10vh;
-}
+        .p-content:last-of-type {
+            margin-bottom: 0;
+        }
 
-.p-footer{
-    color:#d9dddc;
-    text-align:center;
-    padding:30px;
-}
-            body{
-                font-family:poppins;
+        /* Buttons & Navigation List */
+        .ul-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            list-style-type: none;
+            color: white;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .a-content {
+            color: #f1f5f9;
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 24px;
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 30px;
+            font-weight: 400;
+            font-size: 0.92rem;
+            letter-spacing: 0.3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .a-content:hover {
+            transform: translateY(-3px);
+            background-color: #38bdf8;
+            color: #0b1329;
+            border-color: #38bdf8;
+            font-weight: 600;
+            box-shadow: 0 0 18px rgba(56, 189, 248, 0.5);
+        }
+
+        .a-content:active {
+            transform: translateY(-1px);
+        }
+
+        /* Footer Section */
+        .container-footer {
+            background-color: #070d19;
+            padding: 24px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: auto;
+        }
+
+        .p-footer {
+            color: #94a3b8;
+            text-align: center;
+            font-size: 0.88rem;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        /* Responsif untuk Layar HP */
+        @media (max-width: 600px) {
+            .container-content {
+                padding: 24px;
             }
-        </style>
-    </head>
-    <body>
-        <!-- Navigation Bar Start -->
-        <div class="container-navbar">
-            <ul class="ul-navbar">
-                <li class="navbar">🏠</li>
-                <li class="li-navbar">🌙</li>
-            </ul>
-            <hr class="hr-navbar">
-        </div>
-        <!-- Navigation Bar End -->
 
-        <!-- Content Start -->
-         <main class="main-content">
-         <div class="container-content">
+            .h2-content {
+                font-size: 1.6rem;
+            }
+
+            .p-content {
+                font-size: 0.9rem;
+                text-align: left;
+            }
+
+            .ul-content {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .ul-content li {
+                width: 100%;
+            }
+
+            .a-content {
+                display: block;
+                text-align: center;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar Start -->
+    <div class="container-navbar">
+        <ul class="ul-navbar">
+            <li class="navbar">🏠</li>
+            <li class="li-navbar">🌙</li>
+        </ul>
+        <hr class="hr-navbar">
+    </div>
+    <!-- Navigation Bar End -->
+
+    <!-- Content Start -->
+    <main class="main-content">
+        <div class="container-content">
             <h2 class="h2-content">Definisi AI</h2>
             <hr class="hr-content">
             <p class="p-content">
@@ -140,22 +256,23 @@ body{
                 </li>
                 <li>
                     <a href="Data&Analisis.html" class="a-content">
-                   Data & Analisis
+                    Data & Analisis
                     </a>
-                </li>
+                 </li>
                 <li>
                     <a href="Solusi.html" class="a-content">
                         Solusi
                     </a>
                 </li>
             </ul>
-         </div>
-         </main>
-         <!-- Content End -->
+        </div>
+    </main>
+    <!-- Content End -->
 
-         <!-- Footer Start -->
-         <div class="container-footer">
-            <p class="p-footer">&copy; 2026 Kelompok 7. All rights reserved.</p>
-         </div>
-    </body>
+    <!-- Footer Start -->
+    <div class="container-footer">
+        <p class="p-footer">&copy; 2026 Kelompok 7. All rights reserved.</p>
+    </div>
+    <!-- Footer End -->
+</body>
 </html>
