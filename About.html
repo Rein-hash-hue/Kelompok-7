@@ -3,10 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Kelompok</title>
-    <!-- Import Google Font: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *,
         html {
@@ -29,7 +28,6 @@
             overflow-x: hidden;
         }
 
-        /* Navbar Section */
         .container-navbar {
             height: 10vh;
             min-height: 60px;
@@ -70,7 +68,6 @@
             background: linear-gradient(90deg, gray, transparent);
         }
 
-        /* Main Content Section */
         .main-content0 {
             flex: 1;
             display: flex;
@@ -100,34 +97,33 @@
             font-weight: 600;
         }
 
-        .container-content1 {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 32px;
+        .container-baris-tabel {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+            gap: 20px;
             width: 100%;
-            max-width: 720px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 1100px;
         }
 
-        .container-content2 {
+        .container-tabel {
             background: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
-            padding: 32px;
-            width: 100%;
-            max-width: 720px;
+            padding: 24px;
+            flex: 1;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
         }
 
         .h3-content1 {
             color: #38bdf8;
             text-align: center;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 600;
         }
 
@@ -146,7 +142,6 @@
             font-size: 0.95rem;
         }
         
-        /* Footer Section */
         .container-footer {
             background-color: #070d19;
             padding: 20px;
@@ -162,8 +157,17 @@
             font-size: 0.85rem;
         }
 
-        /* Responsive Optimization for Mobile (HP) */
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
+            .container-baris-tabel {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container-tabel {
+                width: 100%;
+                max-width: 720px;
+            }
+
             .main-content0 {
                 padding: 15px 12px;
                 gap: 15px;
@@ -171,10 +175,6 @@
 
             .container-content {
                 padding: 16px 20px;
-            }
-
-            .container-content1 {
-                padding: 20px 16px;
             }
 
             .h2-content {
@@ -188,7 +188,7 @@
             .p-content {
                 font-size: 0.88rem;
                 line-height: 1.6;
-                text-align: left; /* Teks paragraf lebih mudah dibaca di layar HP */
+                text-align: left;
             }
 
             .hr-content {
@@ -198,7 +198,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar Start -->
     <div class="container-navbar">
         <ul class="ul-navbar">
             <li class="navbar">  
@@ -208,40 +207,36 @@
         </ul>
         <hr class="hr-navbar">
     </div>
-    <!-- Navigation Bar End -->
 
-    <!-- Content Start -->
     <main class="main-content0">
         <div class="container-content">
             <h2 class="h2-content">Kelompok 7</h2>
         </div>
-        <!-- Content 1 -->
-        <div class="container-content1">
-            <h3 class="h3-content1">Peran Abraham Reinhart Gad Angelistyo</h3>
-             <hr class="hr-content">
-             <p class="p-content">Membuat website</p>
-        </div>
-    <!-- Content 1 End -->
 
-    <!-- Content 2 -->
-        <div class="container-content2">
-            <h3 class="h3-content1">Peran Allysa Zaria Imam Poero</h3>
-             <hr class="hr-content">
-             <p class="p-content">Mencari Informasi</p>
-        </div>
-    <!-- Content 2 End -->
+        <div class="container-baris-tabel">
+            <div class="container-tabel">
+                <h3 class="h3-content1">Peran Abraham Reinhart Gad Angelistyo</h3>
+                 <hr class="hr-content">
+                 <p class="p-content">Membuat website</p>
+            </div>
 
-    <!-- Content 3 -->
-         <div class="container-content1">
-            <h3 class="h3-content1">Peran Daffavian Rezky Saputra</h3>
-             <hr class="hr-content">
-             <p class="p-content">Mencari Informasi</p>
+            <div class="container-tabel">
+                <h3 class="h3-content1">Peran Allysa Zaria Imam Poero</h3>
+                 <hr class="hr-content">
+                 <p class="p-content">Mencari Informasi</p>
+            </div>
+
+             <div class="container-tabel">
+                <h3 class="h3-content1">Peran Daffavian Rezky Saputra</h3>
+                 <hr class="hr-content">
+                 <p class="p-content">Mencari Informasi</p>
+            </div>
         </div>
     </main> 
-    <!-- Footer Start -->
+
     <div class="container-footer">
         <p class="p-footer">&copy; 2026 Kelompok 7. All rights reserved.</p>
     </div>
-    <!-- Footer End -->
 </body>
 </html>
+
