@@ -2,14 +2,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solusi</title>
-    <!-- Import Google Font: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
-    
+    <title>Tentang Kelompok</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset CSS Default */
         *,
         html {
             margin: 0;
@@ -17,14 +14,13 @@
             box-sizing: border-box;
         }
 
-        /* Body & Background Effect */
         body {
             background-color: #0b1329;
             background-image: 
                 radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),
                 radial-gradient(circle at 85% 80%, rgba(99, 102, 241, 0.12) 0%, transparent 40%);
             background-attachment: fixed;
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Poppins', sans-serif;
             color: #d9dddc;
             min-height: 100vh;
             display: flex;
@@ -32,158 +28,214 @@
             overflow-x: hidden;
         }
 
-        /* Navbar Layout & Style */
         .container-navbar {
-            min-height: 10vh;
-            padding: 0 8%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            height: 10vh;
+            min-height: 60px;
+            padding: 0 5%;
         }
 
         .ul-navbar {
             list-style-type: none;
-            padding: 15px 0;
-            margin: 0;
+            height: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .navbar, .li-navbar {
-            font-size: 1.5rem;
-            cursor: pointer;
-            user-select: none;
-            display: inline-block;
-            padding: 4px;
+            font-size: 1.2rem;
         }
 
         .home-navbar {
             text-decoration: none;
             display: inline-block;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
-        .home-navbar:hover, .li-navbar:hover {
-            transform: scale(1.25) rotate(5deg);
-            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.8));
+        .home-navbar:hover {
+            transform: scale(1.2);
+        }
+
+        .li-navbar {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .li-navbar:hover {
+            transform: scale(1.2);
         }
 
         .hr-navbar {
             border: none;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);
-            margin-bottom: 0;
+            background: linear-gradient(90deg, gray, transparent);
         }
 
-        /* Main Content & Layout */
-        .main-content {
+        .main-content0 {
             flex: 1;
             display: flex;
-            justify-content: center;
-            align-items: start;
-            padding: 40px 20px;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 30px 20px;
+            width: 100%;
         }
 
-        /* Glassmorphism Card Container */
         .container-content {
-            background: rgba(30, 41, 59, 0.65);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 20px;
-            padding: 40px;
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px 32px;
             width: 100%;
             max-width: 720px;
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
         }
 
-        .container-content:hover {
-            box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-
-        /* Title Style */
         .h2-content {
             color: #38bdf8;
-            text-align: center;
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 600;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
-        }
         }
 
-        /* Footer Section */
+        .container-baris-tabel {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+            gap: 20px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .container-tabel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            flex: 1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .h3-content1 {
+            color: #38bdf8;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .hr-content {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, #38bdf8, transparent);
+            margin: 20px 0;
+        }
+
+        .p-content {
+            color: #d9dddc;
+            text-align: justify;
+            line-height: 1.7;
+            font-weight: 300;
+            font-size: 0.95rem;
+        }
+        
         .container-footer {
             background-color: #070d19;
-            padding: 24px 20px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: auto;
         }
 
         .p-footer {
-            color: #94a3b8;
+            color: #d9dddc;
             text-align: center;
-            font-size: 0.88rem;
-            font-weight: 300;
-            letter-spacing: 0.3px;
+            font-size: 0.85rem;
         }
 
-        /* Responsif untuk Layar HP */
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
+            .container-baris-tabel {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container-tabel {
+                width: 100%;
+                max-width: 720px;
+            }
+
+            .main-content0 {
+                padding: 15px 12px;
+                gap: 15px;
+            }
+
             .container-content {
-                padding: 24px;
+                padding: 16px 20px;
             }
 
             .h2-content {
-                font-size: 1.6rem;
+                font-size: 1.3rem;
+            }
+
+            .h3-content1 {
+                font-size: 1.1rem;
             }
 
             .p-content {
-                font-size: 0.9rem;
-                text-align: left;
+                font-size: 0.88rem;
                 line-height: 1.6;
+                text-align: left;
             }
 
-            .ul-content {
-                width: 100%;
-            }
-
-            .ul-content li {
-                width: 100%;
+            .hr-content {
+                margin: 15px 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar Start -->
     <div class="container-navbar">
         <ul class="ul-navbar">
-            <li class="navbar">
-                <a href="index.html" class="home-navbar">
-                🏠
-                </a>
+            <li class="navbar">  
+                <a href="index.html" class="home-navbar">🏠</a>
             </li>
             <li class="li-navbar">🌙</li>
         </ul>
         <hr class="hr-navbar">
     </div>
-    <!-- Navigation Bar End -->
 
-      <!-- Content Start -->
-    <main class="main-content">
+    <main class="main-content0">
         <div class="container-content">
-            <h2 class="h2-content">Solusi</h2>
+            <h2 class="h2-content">Kelompok 7</h2>
         </div>
-    </main>
-    <!-- Content End -->
 
-    <!-- Footer Start -->
+        <div class="container-baris-tabel">
+            <div class="container-tabel">
+                <h3 class="h3-content1">Peran Abraham Reinhart Gad Angelistyo</h3>
+                 <hr class="hr-content">
+                 <p class="p-content">Membuat website</p>
+            </div>
+
+            <div class="container-tabel">
+                <h3 class="h3-content1">Peran Allysa Zaria Imam</h3>
+                <h3 class="h3-content1">Poero</h3>
+                 <hr class="hr-content">
+                 <p class="p-content">Mencari Informasi</p>
+            </div>
+
+             <div class="container-tabel">
+                <h3 class="h3-content1">Peran Daffavian Rezky</h3>
+                <h3 class="h3-content1">Saputra</h3>
+                 <hr class="hr-content">
+                 <p class="p-content">Mencari Informasi</p>
+            </div>
+        </div>
+    </main> 
+
     <div class="container-footer">
         <p class="p-footer">&copy; 2026 Kelompok 7. All rights reserved.</p>
     </div>
