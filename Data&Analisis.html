@@ -160,6 +160,35 @@
             box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
         }
 
+        .container-image {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        width: 100%;
+        }
+
+        .image {
+        width: 45%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 600px) {
+        .container-image {
+        flex-direction: column;
+        align-items: center;
+        }
+            
+        .image {
+        width: 100%;
+        }
+
         /* Footer Section */
         .container-footer {
             background-color: #070d19;
@@ -258,8 +287,10 @@
         <!-- Content 1 End -->
 
         <!-- Image -->
-        <img src="Annotation 2026-11-03 205728">
-        <img src="Annotation 2026-11-03 205804">
+    <div class="container-image">
+        <img src="Annotation 2026-11-03 205728" class="image">
+        <img src="Annotation 2026-11-03 205804" class="image">
+    </div>
     </main>
     <!-- Content End -->
 
