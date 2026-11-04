@@ -160,13 +160,28 @@
             box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
         }
 
+        .wrapper-content{
+            display: flex;
+            flex-direction: column; 
+            align-items: center;    
+            gap: 32px;              
+            width: 100%;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
         .container-image{
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
             width: 100%;
-            max-width: 700px;
+            max-width: 500px;
+        }
+
+        .responsive-content{
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
         }
 
         .fig-caption{
@@ -271,13 +286,15 @@
         <!-- Content 1 End -->
 
         <!-- Image Start -->
-        <div class="container-image">
-            <figure class="container-image">
-                <img src="Annotation 2026-11-03 205728.png">
-                <figcption class="fig-caption">International Energy Agency (IEA)</figcption>
-                <img src="Annotation 2026-11-03 212853.png">
-                <figcaption class="fig-caption">World Bank</figcaption>
-            </figure>
+        <div class="wrapper-content">
+            <div class="container-image">
+                <figure class="container-image">
+                    <img src="Annotation 2026-11-03 205728.png" class="responsive-content">
+                    <figcption class="fig-caption">International Energy Agency (IEA)</figcption>
+                    <img src="Annotation 2026-11-03 212853.png" class="responsive-content">
+                    <figcaption class="fig-caption">World Bank</figcaption>
+                </figure>
+            </div>
         </div>
         <!-- Image End  -->
         
@@ -290,9 +307,9 @@
     <!-- Content End -->
 
     <!-- Footer Start -->
-    <div class="container-footer">
-        <p class="p-footer">&copy; 2026 Kelompok 7. All rights reserved.</p>
-    </div>
+        <div class="container-footer">
+            <p class="p-footer">&copy; 2026 Kelompok 7. All rights reserved.</p>
+        </div>
     <!-- Footer End -->
 </body>
 </html>
