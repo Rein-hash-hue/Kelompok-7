@@ -1,344 +1,606 @@
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator Energi AI (Terawatt)</title>
+    <title>Kalkulator Energi AI - Kelompok 7</title>
+    <!-- Import Google Font: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Menggunakan flexbox pada body agar footer selalu berada di paling bawah halaman */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+        *, html {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Kontainer Utama yang Responsif */
-        .container {
-            background-color: #1e293b;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            max-width: 600px; /* Diperlebar sedikit agar pas di desktop */
-            width: 90%;       /* Fleksibel di layar HP agar tidak terpotong */
-            margin: 40px auto; /* Otomatis ke tengah secara horizontal */
-            box-sizing: border-box;
-            flex: 1; /* Mendorong footer ke bawah jika konten sedikit */
+        body {
+            background-color: #0b1329;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(99, 102, 241, 0.12) 0%, transparent 40%);
+            background-attachment: fixed;
+            font-family: 'Poppins', sans-serif;
+            color: #d9dddc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
         }
 
-        /* Tombol Navigasi Home (Ikon Rumah) */
-        .home-btn {
-            display: inline-block;
-            margin-bottom: 20px;
-            text-decoration: none;
+        /* Navbar Layout */
+        .container-navbar {
+            height: 10vh;
+            min-height: 60px;
+            padding: 0 5%;
+        }
+
+        .ul-navbar {
+            list-style-type: none;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: 1.2rem;
         }
 
-        h2 {
-            text-align: center;
-            color: #38bdf8;
-            margin-top: 0;
+        .home-navbar {
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s ease;
         }
 
-        p.subtitle {
+        .home-navbar:hover {
+            transform: scale(1.25) rotate(5deg);
+            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.8));
+        }
+
+        .hr-navbar {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);
+            margin-bottom: 0;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+            width: 100%;
+        }
+
+        /* Card Container Glassmorphism */
+        .calc-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 36px;
+            width: 100%;
+            max-width: 680px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+        }
+
+        .calc-title {
+            color: #38bdf8;
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .calc-subtitle {
             text-align: center;
             color: #94a3b8;
-            font-size: 0.9rem;
-            margin-bottom: 25px;
+            font-size: 0.85rem;
+            margin-top: 6px;
+            margin-bottom: 20px;
         }
 
+        /* Preset Cepat */
+        .preset-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+        }
+
+        .preset-label {
+            font-size: 0.78rem;
+            color: #94a3b8;
+        }
+
+        .btn-preset {
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: #38bdf8;
+            padding: 5px 12px;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .btn-preset:hover {
+            background: #38bdf8;
+            color: #0b1329;
+            font-weight: 600;
+        }
+
+        /* Form Group */
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
+            margin-bottom: 6px;
+            font-weight: 500;
             color: #cbd5e1;
+            font-size: 0.88rem;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
         }
 
         input, select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #475569;
-            border-radius: 6px;
-            background-color: #334155;
+            padding: 12px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            background-color: rgba(15, 23, 42, 0.8);
             color: #ffffff;
-            font-size: 1rem;
-            box-sizing: border-box;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
         }
 
         input:focus, select:focus {
             outline: none;
             border-color: #38bdf8;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
         }
 
         .formatted-hint {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: #38bdf8;
-            margin-top: 4px;
+            margin-top: 5px;
             min-height: 1.2em;
         }
 
-        button.btn-submit {
+        /* Tombol Hitung */
+        .btn-submit {
             width: 100%;
-            padding: 14px;
+            padding: 13px;
             background-color: #0284c7;
             color: white;
             border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: bold;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.2s;
-            margin-top: 10px;
+            transition: all 0.25s ease;
+            font-family: inherit;
+            margin-top: 8px;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.35);
         }
 
-        button.btn-submit:hover {
-            background-color: #0369a1;
+        .btn-submit:hover {
+            background-color: #38bdf8;
+            color: #0b1329;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
         }
 
-        /* Box Hasil */
+        /* Kotak Hasil Perhitungan */
         .result-box {
-            margin-top: 25px;
-            padding: 20px;
-            background-color: #0f172a;
-            border-radius: 8px;
+            margin-top: 24px;
+            padding: 22px;
+            background-color: rgba(15, 23, 42, 0.85);
+            border-radius: 14px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
             border-left: 5px solid #38bdf8;
             display: none;
         }
 
-        .result-title {
-            font-weight: bold;
+        .result-header {
+            font-weight: 600;
             color: #38bdf8;
-            margin-bottom: 10px;
-        }
-
-        .result-value {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #ffffff;
-        }
-
-        .result-note {
-            font-size: 0.85rem;
-            color: #94a3b8;
-            margin-top: 8px;
-        }
-
-        /* 📌 PERBAIKAN FOOTER: Berada paling bawah, About di Kanan, Copyright di Tengah */
-        .footer-container {
-            width: 100%;
-            background-color: #0f172a; /* Menyamai warna latar belakang */
-            border-top: 1px solid #1e293b;
-            padding: 20px 40px;
-            display: grid;
-            grid-template-columns: 1fr auto 1fr; /* Membagi menjadi 3 kolom untuk presisi letak */
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+            display: flex;
             align-items: center;
-            box-sizing: border-box;
-            margin-top: auto; /* Memastikan melekat paling bawah */
+            gap: 6px;
         }
 
-        .footer-copyright {
-            grid-column: 2; /* Kolom tengah untuk teks hak cipta */
+        .result-metric-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .metric-card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        .metric-card-title {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+        }
+
+        .metric-card-val {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 4px 0;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .metric-card-sub {
+            font-size: 0.75rem;
+            color: #38bdf8;
+        }
+
+        /* Kotak Analogi Real-World */
+        .analogi-box {
+            background: rgba(56, 189, 248, 0.08);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            border: 1px dashed rgba(56, 189, 248, 0.3);
+        }
+
+        /* Footer */
+        .container-footer {
+            background-color: #070d19;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .p-footer {
+            color: #d9dddc;
             text-align: center;
             font-size: 0.85rem;
-            color: #94a3b8;
+            margin: 0 auto;
         }
 
-        .footer-about {
-            grid-column: 3; /* Kolom kanan untuk About */
-            text-align: left;
-        }
-
-        .footer-about a {
-            color: #94a3b8;
+        .about-link {
+            color: #f1f5f9;
             text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: color 0.2s;
+            display: inline-block;
+            padding: 10px 24px;
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 30px;
+            font-weight: 400;
+            font-size: 0.92rem;
+            letter-spacing: 0.3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: absolute;
+            left: 5%;
         }
 
-        .footer-about a:hover {
-            color: #38bdf8;
+        .about-link:hover {
+            transform: translateY(-3px);
+            color: #0b1329;
+            background-color: #38bdf8;
+            border-color: #38bdf8;
+            font-weight: 600;
+            box-shadow: 0 0 18px rgba(56, 189, 248, 0.5);
         }
 
-        /* 📱 RESPONSIVE BREAKPOINT UNTUK LAYAR HP (Tampilan Mobile) */
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-                margin: 20px auto;
-                width: 92%;
+        @media (max-width: 650px) {
+            .calc-card {
+                padding: 22px 18px;
             }
-            
-            /* Ubah susunan footer menjadi vertikal bertumpuk di HP agar rapi */
-            .footer-container {
-                display: flex;
-                flex-direction: column-reverse; /* Copyright di bawah, About di atasnya */
-                gap: 12px;
-                padding: 20px;
+
+            .result-metric-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-link {
+                position: static;
+                margin-bottom: 10px;
+                display: block;
                 text-align: center;
             }
 
-            .footer-about {
-                text-align: center;
-                width: 100%;
+            .container-footer {
+                flex-direction: column;
+                gap: 8px;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <a href="index.html" class="home-btn">🏠</a>
-    
-    <h2>⚡ Kalkulator Energi AI</h2>
-    <p class="subtitle">Hitung estimasi konsumsi energi kluster GPU skala besar</p>
-    
-    <div class="form-group">
-        <label for="cluster-size-raw">Jumlah GPU / Akselerator:</label>
-        <input type="text" id="cluster-size-raw" placeholder="Contoh: 100.000" value="100.000">
-        <div class="formatted-hint" id="cluster-hint">Terbaca: 100.000 GPU</div>
+    <!-- Navigation Bar -->
+    <div class="container-navbar">
+        <ul class="ul-navbar">
+            <li class="navbar">  
+                <a href="index.html" class="home-navbar">🏠</a>
+            </li>
+        </ul>
+        <hr class="hr-navbar">
     </div>
-    
-    <div class="form-group">
-        <label for="power-per-gpu-raw">Daya per GPU + Pendingin (Watt):</label>
-        <input type="text" id="power-per-gpu-raw" placeholder="Contoh: 1.000" value="1.000">
-        <div class="formatted-hint" id="power-hint">Terbaca: 1.000 Watt</div>
-    </div>
-    
-    <div class="form-group">
-        <label for="duration-raw">Durasi Operasi:</label>
-        <input type="text" id="duration-raw" placeholder="Contoh: 8.760" value="8.760">
-        <div class="formatted-hint" id="duration-hint">Terbaca: 8.760</div>
-    </div>
-    
-    <div class="form-group">
-        <label for="time-unit">Satuan Waktu:</label>
-        <select id="time-unit">
-            <option value="hours" selected>Jam (Hours)</option>
-            <option value="days">Hari (Days)</option>
-            <option value="years">Tahun (Years)</option>
-        </select>
-    </div>
-    
-    <button class="btn-submit" onclick="calculateEnergy()">Hitung Energi (TW/TWh)</button>
-    
-    <div class="result-box" id="result-box">
-        <div class="result-title">Hasil Estimasi Konsumsi Energi:</div>
-        <div class="result-value" id="energy-instantaneous">0 TW (Daya Sesaat)</div>
-        <div class="result-value" id="energy-total" style="margin-top: 10px;">0 TWh (Total Energi)</div>
-        <div class="result-note">* 1 Terawatt (TW) = 1.000.000.000.000 Watt (10¹² W).</div>
-    </div>
-</div>
 
-<!-- 📌 STRUKTUR BARU DIV FOOTER PALING BAWAH -->
-<footer class="footer-container">
-    <!-- Kosong di kolom 1 agar menyeimbangkan grid layout -->
-    <div></div> 
-    
-    <div class="footer-copyright">
-        &copy; 2026 Kelompok 7. All rights reserved.
-    </div>
-    
-    <div class="footer-about">
-        <a href="About.html">About</a>
-    </div>
-</footer>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="calc-card">
+            <h2 class="calc-title">⚡ Kalkulator Energi AI</h2>
+            <p class="calc-subtitle">Hitung estimasi daya sesaat & konsumsi energi pusat data kluster GPU</p>
 
-<script>
-    function parseHumanNumber(text) {
-        if (!text) return NaN;
-        let str = text.trim().toLowerCase();
-        
-        let multiplier = 1;
-        if (str.endsWith('jt') || str.endsWith('juta')) {
-            multiplier = 1000000;
-            str = str.replace(/juta|jt/g, '');
-        } else if (str.endsWith('rb') || str.endsWith('ribu') || str.endsWith('k')) {
-            multiplier = 1000;
-            str = str.replace(/ribu|rb|k/g, '');
-        } else if (str.endsWith('m') || str.endsWith('milyar') || str.endsWith('miliar')) {
-            multiplier = 1000000000;
-            str = str.replace(/milyar|miliar|m/g, '');
-        }
+            <!-- Preset Praktis -->
+            <div class="preset-wrapper">
+                <span class="preset-label">Contoh Cepat:</span>
+                <button type="button" class="btn-preset" onclick="applyPreset(10000, 1000, 8760, 'hours')">10k GPU (Riset)</button>
+                <button type="button" class="btn-preset" onclick="applyPreset(100000, 1000, 8760, 'hours')">100k GPU (Hyperscale)</button>
+                <button type="button" class="btn-preset" onclick="applyPreset(1000000, 1200, 1, 'years')">1 Juta GPU (Masa Depan)</button>
+            </div>
 
-        const dotCount = (str.match(/\./g) || []).length;
-        const commaCount = (str.match(/,/g) || []).length;
-        
-        if (dotCount > 0 && commaCount === 0) {
-            if (/\.\d{3}(\D|$)/.test(str) || dotCount > 1) {
+            <!-- Input 1: Jumlah GPU -->
+            <div class="form-group">
+                <label for="cluster-size-raw">Jumlah GPU / Akselerator:</label>
+                <input type="text" id="cluster-size-raw" placeholder="Contoh: 100.000 atau 100k" value="100.000">
+                <div class="formatted-hint" id="cluster-hint">Terbaca: 100.000 GPU</div>
+            </div>
+
+            <!-- Input 2: Daya per GPU -->
+            <div class="form-group">
+                <label for="power-per-gpu-raw">Daya per GPU + Sistem Pendingin (Watt):</label>
+                <input type="text" id="power-per-gpu-raw" placeholder="Contoh: 1.000" value="1.000">
+                <div class="formatted-hint" id="power-hint">Terbaca: 1.000 Watt per Unit</div>
+            </div>
+
+            <!-- Input 3: Durasi & Satuan -->
+            <div class="form-group">
+                <label for="duration-raw">Durasi Operasi:</label>
+                <div class="input-row">
+                    <input type="text" id="duration-raw" placeholder="Contoh: 8.760 atau 1" value="8.760" style="flex: 2;">
+                    <select id="time-unit" style="flex: 1;" onchange="updateDurationHint()">
+                        <option value="hours" selected>Jam</option>
+                        <option value="days">Hari</option>
+                        <option value="years">Tahun</option>
+                    </select>
+                </div>
+                <div class="formatted-hint" id="duration-hint">Terbaca: 8.760 Jam (1 Tahun Penuh)</div>
+            </div>
+
+            <button type="button" class="btn-submit" onclick="calculateEnergy()">Hitung Konsumsi Energi</button>
+
+            <!-- Box Hasil Perhitungan -->
+            <div class="result-box" id="result-box">
+                <div class="result-header">📊 Hasil Estimasi Konsumsi Energi:</div>
+
+                <div class="result-metric-grid">
+                    <!-- Daya Sesaat -->
+                    <div class="metric-card">
+                        <div class="metric-card-title">Daya Sesaat (Power)</div>
+                        <div class="metric-card-val" id="power-primary">0 MW</div>
+                        <div class="metric-card-sub" id="power-secondary">Setara 0 TW</div>
+                    </div>
+
+                    <!-- Total Energi -->
+                    <div class="metric-card">
+                        <div class="metric-card-title">Total Energi Terpakai</div>
+                        <div class="metric-card-val" id="energy-primary" style="color: #38bdf8;">0 GWh</div>
+                        <div class="metric-card-sub" id="energy-secondary">Setara 0 TWh</div>
+                    </div>
+                </div>
+
+                <!-- Konteks & Analogi Nyata -->
+                <div class="analogi-box" id="analogi-text">
+                    💡 <b>Konteks Nyata:</b> Memuat perbandingan energi...
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div class="container-footer">
+        <a href="About.html" class="about-link">About</a>
+        <p class="p-footer">&copy; 2026 Kelompok 7. All rights reserved.</p>
+    </div>
+
+    <!-- SCRIPT PERHITUNGAN YANG SUDAH DIBETULKAN -->
+    <script>
+        // Fungsi Parsing Angka Manusiawi (Mendukung titik ribuan, koma desimal, jt, k, rb)
+        function parseHumanNumber(text) {
+            if (!text) return NaN;
+            let str = text.toString().trim().toLowerCase();
+
+            let multiplier = 1;
+            if (str.endsWith('jt') || str.endsWith('juta')) {
+                multiplier = 1000000;
+                str = str.replace(/juta|jt/g, '');
+            } else if (str.endsWith('rb') || str.endsWith('ribu') || str.endsWith('k')) {
+                multiplier = 1000;
+                str = str.replace(/ribu|rb|k/g, '');
+            } else if (str.endsWith('m') || str.endsWith('milyar') || str.endsWith('miliar')) {
+                multiplier = 1000000000;
+                str = str.replace(/milyar|miliar|m/g, '');
+            }
+
+            str = str.trim();
+
+            const dotCount = (str.match(/\./g) || []).length;
+            const commaCount = (str.match(/,/g) || []).length;
+
+            if (dotCount > 0 && commaCount === 0) {
+                // Jika format ribuan seperti 100.000 atau 8.760
+                if (/\.\d{3}(\D|$)/.test(str) || dotCount > 1) {
+                    str = str.replace(/\./g, '');
+                }
+            } else if (commaCount > 0) {
+                // Format Indonesia: titik = ribuan, koma = desimal
                 str = str.replace(/\./g, '');
+                str = str.replace(/,/g, '.');
             }
-        } else if (commaCount > 0) {
-            str = str.replace(/\./g, '');
-            str = str.replace(/,/g, '.');
+
+            const parsed = parseFloat(str);
+            return isNaN(parsed) ? NaN : parsed * multiplier;
         }
-        
-        return parseFloat(str) * multiplier;
-    }
 
-    function formatIndonesian(num) {
-        if (isNaN(num) || num === null) return '';
-        return new Intl.NumberFormat('id-ID').format(num);
-    }
+        function formatID(num, maxDigits = 2) {
+            if (isNaN(num) || num === null) return '0';
+            return new Intl.NumberFormat('id-ID', { maximumFractionDigits: maxDigits }).format(num);
+        }
 
-    function setupLiveHint(inputId, hintId, suffix) {
-        const inputEl = document.getElementById(inputId);
-        const hintEl = document.getElementById(hintId);
-        
-        function updateHint() {
-            const val = parseHumanNumber(inputEl.value);
-            if (isNaN(val)) {
-                hintEl.innerText = 'Format tidak valid';
+        // Live Hints
+        function setupLiveHint(inputId, hintId, suffix) {
+            const inputEl = document.getElementById(inputId);
+            const hintEl = document.getElementById(hintId);
+
+            function update() {
+                const val = parseHumanNumber(inputEl.value);
+                if (isNaN(val) || val <= 0) {
+                    hintEl.innerText = 'Format angka tidak valid';
+                    hintEl.style.color = '#ef4444';
+                } else {
+                    hintEl.innerText = 'Terbaca: ' + formatID(val, 3) + ' ' + suffix;
+                    hintEl.style.color = '#38bdf8';
+                }
+            }
+            inputEl.addEventListener('input', update);
+            update();
+        }
+
+        function updateDurationHint() {
+            const val = parseHumanNumber(document.getElementById('duration-raw').value);
+            const unit = document.getElementById('time-unit').value;
+            const hintEl = document.getElementById('duration-hint');
+
+            if (isNaN(val) || val <= 0) {
+                hintEl.innerText = 'Format durasi tidak valid';
                 hintEl.style.color = '#ef4444';
-            } else {
-                hintEl.innerText = 'Terbaca: ' + formatIndonesian(val) + ' ' + suffix;
-                hintEl.style.color = '#38bdf8';
+                return;
             }
+
+            let textUnit = 'Jam';
+            let extra = '';
+            if (unit === 'days') {
+                textUnit = 'Hari';
+                extra = ` (${formatID(val * 24)} Jam)`;
+            } else if (unit === 'years') {
+                textUnit = 'Tahun';
+                extra = ` (${formatID(val * 8760)} Jam Operasi)`;
+            }
+
+            hintEl.innerText = `Terbaca: ${formatID(val, 2)} ${textUnit}${extra}`;
+            hintEl.style.color = '#38bdf8';
         }
-        inputEl.addEventListener('input', updateHint);
-        updateHint();
-    }
 
-    window.addEventListener('DOMContentLoaded', () => {
-        setupLiveHint('cluster-size-raw', 'cluster-hint', 'GPU');
-        setupLiveHint('power-per-gpu-raw', 'power-hint', 'Watt');
-        setupLiveHint('duration-raw', 'duration-hint', '');
-    });
+        window.addEventListener('DOMContentLoaded', () => {
+            setupLiveHint('cluster-size-raw', 'cluster-hint', 'GPU');
+            setupLiveHint('power-per-gpu-raw', 'power-hint', 'Watt per Unit');
+            document.getElementById('duration-raw').addEventListener('input', updateDurationHint);
+            updateDurationHint();
+            calculateEnergy(); // Jalankan kalkulasi awal otomatis
+        });
 
-    function calculateEnergy() {
-        const clusterSize = parseHumanNumber(document.getElementById('cluster-size-raw').value);
-        const powerPerGpu = parseHumanNumber(document.getElementById('power-per-gpu-raw').value);
-        let duration = parseHumanNumber(document.getElementById('duration-raw').value);
-        const timeUnit = document.getElementById('time-unit').value;
-        
-        if (isNaN(clusterSize) || isNaN(powerPerGpu) || isNaN(duration)) {
-            alert('Mohon periksa kembali inputan Anda. Pastikan format angka sudah benar.');
-            return;
+        // Terapkan Preset
+        function applyPreset(gpu, watt, dur, unit) {
+            document.getElementById('cluster-size-raw').value = formatID(gpu);
+            document.getElementById('power-per-gpu-raw').value = formatID(watt);
+            document.getElementById('duration-raw').value = formatID(dur);
+            document.getElementById('time-unit').value = unit;
+
+            // Trigger update hint & kalkulasi
+            document.getElementById('cluster-size-raw').dispatchEvent(new Event('input'));
+            document.getElementById('power-per-gpu-raw').dispatchEvent(new Event('input'));
+            updateDurationHint();
+            calculateEnergy();
         }
-        
-        if (timeUnit === 'days') duration *= 24;
-        else if (timeUnit === 'years') duration *= 8760;
-        
-        const totalPowerWatt = clusterSize * powerPerGpu;
-        const totalPowerTW = totalPowerWatt / 1e12;
-        const totalEnergyTWh = (totalPowerWatt * duration) / 1e12;
-        
-        document.getElementById('energy-instantaneous').innerText = totalPowerTW < 0.000001 ? 
-            totalPowerTW.toExponential(4) + ' TW' : totalPowerTW.toLocaleString('id-ID', {maximumFractionDigits: 7}) + ' TW';
-            
-        document.getElementById('energy-total').innerText = totalEnergyTWh < 0.000001 ? 
-            totalEnergyTWh.toExponential(4) + ' TWh' : totalEnergyTWh.toLocaleString('id-ID', {maximumFractionDigits: 7}) + ' TWh';
-        
-        document.getElementById('result-box').style.display = 'block';
-    }
-</script>
 
+        // FUNGSI UTAMA KALKULASI ENERGI
+        function calculateEnergy() {
+            const clusterSize = parseHumanNumber(document.getElementById('cluster-size-raw').value);
+            const powerPerGpu = parseHumanNumber(document.getElementById('power-per-gpu-raw').value);
+            let duration = parseHumanNumber(document.getElementById('duration-raw').value);
+            const timeUnit = document.getElementById('time-unit').value;
+
+            if (isNaN(clusterSize) || isNaN(powerPerGpu) || isNaN(duration) || clusterSize <= 0 || powerPerGpu <= 0 || duration <= 0) {
+                alert('Mohon periksa inputan Anda. Pastikan angka lebih besar dari 0 dan formatnya benar.');
+                return;
+            }
+
+            // Konversi durasi ke jam
+            let hours = duration;
+            if (timeUnit === 'days') hours = duration * 24;
+            else if (timeUnit === 'years') hours = duration * 8760;
+
+            // 1. Daya Sesaat (Watt)
+            const totalPowerWatt = clusterSize * powerPerGpu;
+            const totalPowerMW = totalPowerWatt / 1e6;
+            const totalPowerGW = totalPowerWatt / 1e9;
+            const totalPowerTW = totalPowerWatt / 1e12;
+
+            // 2. Total Energi (Watt-hour / Wh)
+            const totalEnergyWh = totalPowerWatt * hours;
+            const totalEnergyMWh = totalEnergyWh / 1e6;
+            const totalEnergyGWh = totalEnergyWh / 1e9;
+            const totalEnergyTWh = totalEnergyWh / 1e12;
+
+            // Format Tampilan Daya Sesaat (Pilih satuan paling mudah dipahami)
+            const powerPrimaryEl = document.getElementById('power-primary');
+            const powerSecEl = document.getElementById('power-secondary');
+
+            if (totalPowerGW >= 1) {
+                powerPrimaryEl.innerText = formatID(totalPowerGW, 3) + ' GW';
+                powerSecEl.innerText = `Setara ${formatID(totalPowerTW, 6)} TW (${formatID(totalPowerMW, 1)} MW)`;
+            } else {
+                powerPrimaryEl.innerText = formatID(totalPowerMW, 2) + ' MW';
+                powerSecEl.innerText = `Setara ${formatID(totalPowerGW, 4)} GW (${formatID(totalPowerTW, 6)} TW)`;
+            }
+
+            // Format Tampilan Total Energi
+            const energyPrimaryEl = document.getElementById('energy-primary');
+            const energySecEl = document.getElementById('energy-secondary');
+
+            if (totalEnergyTWh >= 0.1) {
+                energyPrimaryEl.innerText = formatID(totalEnergyTWh, 4) + ' TWh';
+                energySecEl.innerText = `Setara ${formatID(totalEnergyGWh, 1)} GWh (${formatID(totalEnergyMWh, 0)} MWh)`;
+            } else {
+                energyPrimaryEl.innerText = formatID(totalEnergyGWh, 2) + ' GWh';
+                energySecEl.innerText = `Setara ${formatID(totalEnergyTWh, 6)} TWh (${formatID(totalEnergyMWh, 1)} MWh)`;
+            }
+
+            // 3. Konteks Real-World (Relevan dengan materi artikel kelompok)
+            const analogiEl = document.getElementById('analogi-text');
+            // Asumsi 1 rumah tangga Indonesia memakai rata-rata ~1.500 kWh/tahun (1,5 MWh/tahun)
+            const rumahTangga = Math.round(totalEnergyMWh / 1.5);
+            // Referensi IEA dari artikel kelompok: total AI data center global = 155 TWh
+            const persenGlobal = ((totalEnergyTWh / 155) * 100).toFixed(3);
+
+            analogiEl.innerHTML = `
+                💡 <b>Konteks Nyata Energi Ini:</b><br>
+                • Konsumsi energi <b>${formatID(totalEnergyTWh, 4)} TWh</b> ini setara dengan kebutuhan listrik tahunan sekitar <b>${formatID(rumahTangga)} rumah tangga</b> di Indonesia.<br>
+                • Beban komputasi ini menyumbang sekitar <b>${persenGlobal}%</b> dari total estimasi konsumsi listrik data center AI seluruh dunia (basis 155 TWh laporan IEA).
+            `;
+
+            document.getElementById('result-box').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
