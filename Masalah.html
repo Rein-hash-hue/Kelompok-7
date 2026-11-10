@@ -1,0 +1,279 @@
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masalah Utama AI</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,
+        html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b1329;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(99, 102, 241, 0.12) 0%, transparent 40%);
+            background-attachment: fixed;
+            font-family: 'Poppins', sans-serif;
+            color: #d9dddc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .container-navbar {
+            height: 10vh;
+            min-height: 60px;
+            padding: 0 5%;
+        }
+
+        .ul-navbar {
+            list-style-type: none;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        .home-navbar {
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .home-navbar:hover {
+            transform: scale(1.25) rotate(5deg);
+            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.8));
+        }
+
+        .li-navbar {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .li-navbar:hover {
+            transform: scale(1.2);
+        }
+
+
+         .hr-navbar {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);
+            margin-bottom: 0;
+        }
+        
+        .main-content0 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            padding: 30px 20px;
+            width: 100%;
+        }
+
+        .container-content {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px 32px;
+            width: 100%;
+            max-width: 720px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .h2-content {
+            color: #38bdf8;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .container-content1 {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            width: 100%;
+            max-width: 720px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .h3-content1 {
+            color: #38bdf8;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .hr-content {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, #38bdf8, transparent);
+            margin: 20px 0;
+        }
+
+        .p-content1 {
+            color: #d9dddc;
+            text-align: justify;
+            line-height: 1.7;
+            font-weight: 300;
+            font-size: 0.95rem;
+            margin-bottom: auto;
+        }
+
+        .hr-sumber {
+            border: none;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.15);
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        .sumber-link {
+            color: #f1f5f9;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+            padding: 10px 24px;
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 30px;
+            font-weight: 400;
+            font-size: 0.92rem;
+            letter-spacing: 0.3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sumber-link:hover {
+            text-decoration: none;
+            background-color: #38bdf8;
+            color: #0b1329;
+            border-color: #38bdf8;
+            font-weight: 600;
+            box-shadow: 0 0 18px rgba(56, 189, 248, 0.5); 
+        }
+
+        .container-footer {
+            background-color: #070d19;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .p-footer {
+            color: #d9dddc;
+            text-align: center;
+            font-size: 0.85rem;
+            margin: 0 auto;
+        }
+
+        .about-link {
+            color: #f1f5f9;
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 24px;
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 30px;
+            font-weight: 400;
+            font-size: 0.92rem;
+            letter-spacing: 0.3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .about-link:hover {
+            transform: translateY(-3px);
+            color: #0b1329;
+            background-color: #38bdf8;
+            border-color: #38bdf8;
+            font-weight: 600;
+            box-shadow: 0 0 18px rgba(56, 189, 248, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .main-content0 {
+                padding: 15px 12px;
+                gap: 15px;
+            }
+
+            .container-content,
+            .container-content1 {
+                width: 100%;
+                max-width: 720px;
+            }
+
+            .h2-content {
+                font-size: 1.3rem;
+            }
+
+            .h3-content1 {
+                font-size: 1.1rem;
+            }
+
+            .p-content1 {
+                font-size: 0.88rem;
+                line-height: 1.6;
+            }
+
+            .about-link{
+                display: block;
+                text-align: center;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-navbar">
+        <ul class="ul-navbar">
+            <li class="navbar">  
+                <a href="index.html" class="home-navbar">🏠</a>
+            </li>
+            <li class="navbar">
+                <a href="Kalkulator.html" class="home-navbar">🧮</a>
+            </li>
+        </ul>
+        <hr class="hr-navbar">
+    </div>
+
+    <main class="main-content0">
+        <div class="container-content">
+            <h2 class="h2-content">Masalah Utama AI</h2>
+        </div>
+
+        <div class="container-content1">
+            <h3 class="h3-content1">Konsumsi Energi Listrik yang Besar</h3>
+            <hr class="hr-content">
+            <p class="p-content1">Kecerdasan Buatan atau AI boros listrik karena sistem ini bekerja dengan cara memproses data dalam jumlah yang sangat raksasa melalui jaringan saraf tiruan yang rumit. Proses ini membutuhkan cip komputer khusus berdaya tinggi yang harus melakukan miliaran perhitungan matematika rumit secara bersamaan dalam hitungan detik. Ketika cip-cip ini dipaksa bekerja keras tanpa henti, mereka menghasilkan panas yang sangat ekstrem, sehingga pusat data harus menyalakan sistem pendingin raksasa selama 24 jam penuh yang konsumsi listriknya hampir menyamai kebutuhan komputer itu sendiri.</p>
+            <hr class="hr-sumber">
+            <a href="https://el.iti.ac.id/ledakan-kebutuhan-energi-pusat-data-ai/" class="sumber-link">Sumber</a>
+        </div>
+    </main>
+
+    <div class="container-footer">
+        <a href="About.html" class="about-link">About</a>
+        <p class="p-footer">&copy; 2026 Kelompok 7. All rights reserved.</p>
+    </div>
+</body>
+</html>
+

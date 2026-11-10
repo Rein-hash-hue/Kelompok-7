@@ -1,0 +1,261 @@
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kelompok</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,
+        html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b1329;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(99, 102, 241, 0.12) 0%, transparent 40%);
+            background-attachment: fixed;
+            font-family: 'Poppins', sans-serif;
+            color: #d9dddc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .container-navbar {
+            height: 10vh;
+            min-height: 60px;
+            padding: 0 5%;
+        }
+
+         .container-navbar {
+            height: 10vh;
+            min-height: 60px;
+            padding: 0 5%;
+        }
+
+        .ul-navbar {
+            list-style-type: none;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        .home-navbar {
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .home-navbar:hover {
+            transform: scale(1.25) rotate(5deg);
+            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.8));
+        }
+
+        .li-navbar {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .li-navbar:hover {
+            transform: scale(1.2);
+        }
+
+
+        .hr-navbar {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);
+            margin-bottom: 0;
+        }
+
+        .main-content0 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 30px 20px;
+            width: 100%;
+        }
+
+        .container-content {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px 32px;
+            width: 100%;
+            max-width: 720px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .h2-content {
+            color: #38bdf8;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .container-baris-tabel {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .container-tabel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            flex: 1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .container-tabel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .h3-content1 {
+            color: #38bdf8;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hr-content {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, #38bdf8, transparent);
+            margin: 20px 0;
+        }
+
+        .p-content {
+            color: #d9dddc;
+            text-align: justify;
+            line-height: 1.7;
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+        
+        .container-footer {
+            background-color: #070d19;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .p-footer {
+            color: #d9dddc;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 900px) {
+            .container-baris-tabel {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container-tabel {
+                width: 100%;
+                max-width: 720px;
+            }
+
+            .h3-content1 {
+                min-height: auto;
+            }
+
+            .main-content0 {
+                padding: 15px 12px;
+                gap: 15px;
+            }
+
+            .container-content {
+                padding: 16px 20px;
+            }
+
+            .h2-content {
+                font-size: 1.3rem;
+            }
+
+            .p-content {
+                font-size: 0.88rem;
+                line-height: 1.6;
+                text-align: left;
+            }
+
+            .hr-content {
+                margin: 15px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-navbar">
+        <ul class="ul-navbar">
+            <li class="navbar">  
+                <a href="index.html" class="home-navbar">🏠</a>
+            </li>
+        </ul>
+        <hr class="hr-navbar">
+    </div>
+
+    <main class="main-content0">
+        <div class="container-content">
+            <h2 class="h2-content">Kelompok 7</h2>
+        </div>
+
+        <div class="container-baris-tabel">
+            <div class="container-tabel">
+                <h3 class="h3-content1">Kontribusi Abraham Reinhart</h3>
+                 <hr class="hr-content">
+                 <p class="p-content">Kontribusi nyata saya dalam kelompok adalah mengetik kode program dan membuat program untuk membangun website. Informasi dan sumber referensi telah dikumpulkan oleh teman-teman sekelompok saya. Oleh karena itu, tugas saya adalah memasukkan seluruh informasi tersebut ke dalam website serta menyusunnya agar terlihat rapi dan mudah dibaca.<br><br>Sebelum memasukkan informasi ke dalam website, saya terlebih dahulu memeriksa kebenaran isinya bersama teman-teman, terutama pada bagian sumber referensi. Hal ini dilakukan agar informasi yang ditampilkan memiliki sumber yang jelas dan dapat dipertanggungjawabkan.<br><br>Apabila terjadi kesalahan atau error saat proses pemrograman, saya berusaha mencari tahu penyebabnya terlebih dahulu, kemudian mencari solusi yang tepat. Setelah itu, saya mencoba menjalankan kembali program tersebut hingga website dapat ditampilkan dengan baik.<br><br>Selain itu, saya juga bertanggung jawab mengatur tampilan website, seperti tata letak, pemilihan warna, dan urutan setiap bagian agar pengunjung dapat memahami informasi dengan mudah. Saya juga memastikan bahwa website dapat diakses dan ditampilkan dengan baik melalui laptop maupun ponsel.<br><br>Jika terdapat bagian yang kurang tepat atau kurang jelas, saya mendiskusikannya dengan teman-teman sekelompok dan segera melakukan perbaikan. Terakhir, saya memastikan seluruh bagian website telah lengkap dan berfungsi dengan baik sebelum dikumpulkan. Hal ini saya lakukan karena saya turut bertanggung jawab atas hasil akhir pekerjaan kelompok.</p>
+            </div>
+
+            <div class="container-tabel">
+                <h3 class="h3-content1">Kontribusi Allysa Zaria Imam Poero</h3>
+                 <hr class="hr-content">
+                 <p class="p-content">Kontribusi saya dalam kelompok adalah mencari informasi selengkap mungkin mengenai topik yang bahas.<br><br>Pertama, saya mencari tahu apa permasalahannya, kapan peristiwa tersebut terjadi, siapa saja pihak yang terlibat, dan apa penyebabnya. Saya juga menyadari bahwa suatu peristiwa jarang disebabkan oleh satu faktor saja. Oleh karena itu, saya mencari berbagai faktor yang turut memengaruhi masalah tersebut, bukan langsung menyalahkan satu hal.<br><br>Kedua, saya mencari solusi dan cara untuk menangani permasalahan tersebut. Saya mempelajari langkah-langkah yang pernah dilakukan, apakah langkah tersebut berhasil atau tidak, serta alasan di balik keberhasilan atau kegagalannya. Dengan begitu, kelompok saya dapat memperoleh gambaran yang lebih jelas dan mengambil keputusan yang lebih tepat.<br><br>Ketiga, saya mencari referensi dari berbagai sumber tepercaya, seperti buku, artikel penelitian, arsip, atau wawancara dengan orang yang mengetahui permasalahan tersebut secara langsung. Saya tidak langsung memercayai satu sumber atau sumber yang sekilas terlihat meyakinkan. Saya memeriksa terlebih dahulu siapa pembuatnya, kapan sumber tersebut diterbitkan, dan apa tujuannya. Setelah itu, saya membandingkannya dengan sumber lain. Jika terdapat perbedaan informasi, saya mencari tahu apakah perbedaan tersebut disebabkan oleh sudut pandang yang berbeda atau memang terdapat kesalahan.<br><br>Terakhir, jika informasi diperoleh dari internet atau AI, saya tidak langsung menggunakannya. Saya menelusuri sumber aslinya terlebih dahulu karena saya bertanggung jawab atas kebenaran informasi yang digunakan oleh kelompok kami. Dengan demikian, hasil kerja kelompok memiliki dasar yang jelas dan dapat dipertanggungjawabkan, bukan sekadar berdasarkan dugaan.</p>
+            </div>
+
+            <div class="container-tabel">
+                <h3 class="h3-content1">Kontribusi Daffavian Rezky Saputra</h3>
+                 <hr class="hr-content">
+                 <p class="p-content">Kontribusi nyata saya dalam kelompok adalah mencari informasi dan membuat sketsa tata letak (layout) website. Dalam proses mencari informasi, saya terlebih dahulu memahami permasalahan yang dibahas, kemudian mencari solusi melalui beberapa sumber yang dapat dipercaya, bukan hanya dari satu sumber.<br><br>Setiap sumber informasi yang ditemukan saya periksa terlebih dahulu, terutama mengenai pihak yang menerbitkan dan waktu penerbitannya. Setelah itu, saya membandingkan informasi dari beberapa sumber untuk memastikan kebenarannya agar informasi yang digunakan tidak hanya berdasarkan perkiraan.<br><br>Selain mencari informasi, saya juga bertanggung jawab membuat sketsa tata letak website untuk menentukan posisi judul, teks, gambar, dan menu. Sketsa tersebut kemudian saya tunjukkan kepada teman-teman sekelompok untuk didiskusikan. Apabila terdapat bagian yang kurang sesuai, saya segera melakukan perbaikan berdasarkan hasil diskusi.<br><br>Dengan adanya sketsa tata letak tersebut, proses pembuatan website menjadi lebih terarah karena susunan tampilannya sudah direncanakan sejak awal. Selain itu, informasi yang digunakan dalam website juga memiliki dasar sumber yang jelas dan dapat dipertanggungjawabkan.</p>
+            </div>
+        </div>
+    </main> 
+
+    <div class="container-footer">
+        <p class="p-footer">&copy; 2026 Kelompok 7. All rights reserved.</p>
+    </div>
+</body>
+</html>
+
