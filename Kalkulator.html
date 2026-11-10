@@ -267,36 +267,33 @@
             border: 1px dashed rgba(56, 189, 248, 0.3);
         }
 
-        /* Footer */
+        /* ========================================================
+           FOOTER SECTION (DISAMAKAN 100% SEPERTI INDEX.HTML)
+           ======================================================== */
         .container-footer {
             background-color: #070d19;
             padding: 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             position: relative;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .container-footer {
-            background-color: #070d19;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 20px;
+            gap: 15px;
         }
 
         .p-footer {
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        .p-footer1 {
             color: #d9dddc;
             text-align: center;
             font-size: 0.85rem;
             margin: 0 auto;
         }
 
-        .about-link {
+        .a-content {
             color: #f1f5f9;
             text-decoration: none;
             display: inline-block;
@@ -308,18 +305,19 @@
             font-size: 0.92rem;
             letter-spacing: 0.3px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
         }
 
-        .about-link:hover {
+        .a-content:hover {
             transform: translateY(-3px);
-            color: #0b1329;
             background-color: #38bdf8;
+            color: #0b1329;
             border-color: #38bdf8;
             font-weight: 600;
             box-shadow: 0 0 18px rgba(56, 189, 248, 0.5);
         }
 
-        @media (max-width: 728px) {
+        @media (max-width: 650px) {
             .calc-card {
                 padding: 22px 18px;
             }
@@ -328,16 +326,24 @@
                 grid-template-columns: 1fr;
             }
 
-            .about-link {
-                position: static;
-                margin-bottom: 10px;
-                display: block;
-                text-align: center;
+            /* Di HP: Footer tetap sejajar kiri-kanan (tidak bertumpuk ke bawah) */
+            .container-footer {
+                padding: 16px 20px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
             }
 
-            .container-footer {
-                flex-direction: column;
-                gap: 8px;
+            .p-footer1 {
+                text-align: right;
+                font-size: 0.8rem;
+                margin: 0;
+            }
+
+            .a-content {
+                padding: 8px 20px;
+                font-size: 0.88rem;
             }
         }
     </style>
@@ -426,15 +432,20 @@
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer Persis Seperti index.html -->
     <div class="container-footer">
-        <a href="About.html" class="about-link">About</a>
-        <p class="p-footer">&copy; 2026 Kelompok 7. All rights reserved.</p>
+        <p class="p-footer">
+            <a href="About.html" class="a-content">
+               About
+            </a>
+        </p>
+        <p class="p-footer1">
+            &copy; 2026 Kelompok 7. All rights reserved.
+        </p>
     </div>
 
-    <!-- SCRIPT PERHITUNGAN YANG SUDAH DIBETULKAN -->
+    <!-- Script Logika -->
     <script>
-        // Fungsi Parsing Angka Manusiawi (Mendukung titik ribuan, koma desimal, jt, k, rb)
         function parseHumanNumber(text) {
             if (!text) return NaN;
             let str = text.toString().trim().toLowerCase();
@@ -457,12 +468,10 @@
             const commaCount = (str.match(/,/g) || []).length;
 
             if (dotCount > 0 && commaCount === 0) {
-                // Jika format ribuan seperti 100.000 atau 8.760
                 if (/\.\d{3}(\D|$)/.test(str) || dotCount > 1) {
                     str = str.replace(/\./g, '');
                 }
             } else if (commaCount > 0) {
-                // Format Indonesia: titik = ribuan, koma = desimal
                 str = str.replace(/\./g, '');
                 str = str.replace(/,/g, '.');
             }
@@ -476,7 +485,6 @@
             return new Intl.NumberFormat('id-ID', { maximumFractionDigits: maxDigits }).format(num);
         }
 
-        // Live Hints
         function setupLiveHint(inputId, hintId, suffix) {
             const inputEl = document.getElementById(inputId);
             const hintEl = document.getElementById(hintId);
@@ -525,24 +533,21 @@
             setupLiveHint('power-per-gpu-raw', 'power-hint', 'Watt per Unit');
             document.getElementById('duration-raw').addEventListener('input', updateDurationHint);
             updateDurationHint();
-            calculateEnergy(); // Jalankan kalkulasi awal otomatis
+            calculateEnergy();
         });
 
-        // Terapkan Preset
         function applyPreset(gpu, watt, dur, unit) {
             document.getElementById('cluster-size-raw').value = formatID(gpu);
             document.getElementById('power-per-gpu-raw').value = formatID(watt);
             document.getElementById('duration-raw').value = formatID(dur);
             document.getElementById('time-unit').value = unit;
 
-            // Trigger update hint & kalkulasi
             document.getElementById('cluster-size-raw').dispatchEvent(new Event('input'));
             document.getElementById('power-per-gpu-raw').dispatchEvent(new Event('input'));
             updateDurationHint();
             calculateEnergy();
         }
 
-        // FUNGSI UTAMA KALKULASI ENERGI
         function calculateEnergy() {
             const clusterSize = parseHumanNumber(document.getElementById('cluster-size-raw').value);
             const powerPerGpu = parseHumanNumber(document.getElementById('power-per-gpu-raw').value);
@@ -554,24 +559,20 @@
                 return;
             }
 
-            // Konversi durasi ke jam
             let hours = duration;
             if (timeUnit === 'days') hours = duration * 24;
             else if (timeUnit === 'years') hours = duration * 8760;
 
-            // 1. Daya Sesaat (Watt)
             const totalPowerWatt = clusterSize * powerPerGpu;
             const totalPowerMW = totalPowerWatt / 1e6;
             const totalPowerGW = totalPowerWatt / 1e9;
             const totalPowerTW = totalPowerWatt / 1e12;
 
-            // 2. Total Energi (Watt-hour / Wh)
             const totalEnergyWh = totalPowerWatt * hours;
             const totalEnergyMWh = totalEnergyWh / 1e6;
             const totalEnergyGWh = totalEnergyWh / 1e9;
             const totalEnergyTWh = totalEnergyWh / 1e12;
 
-            // Format Tampilan Daya Sesaat (Pilih satuan paling mudah dipahami)
             const powerPrimaryEl = document.getElementById('power-primary');
             const powerSecEl = document.getElementById('power-secondary');
 
@@ -583,7 +584,6 @@
                 powerSecEl.innerText = `Setara ${formatID(totalPowerGW, 4)} GW (${formatID(totalPowerTW, 6)} TW)`;
             }
 
-            // Format Tampilan Total Energi
             const energyPrimaryEl = document.getElementById('energy-primary');
             const energySecEl = document.getElementById('energy-secondary');
 
@@ -595,11 +595,8 @@
                 energySecEl.innerText = `Setara ${formatID(totalEnergyTWh, 6)} TWh (${formatID(totalEnergyMWh, 1)} MWh)`;
             }
 
-            // 3. Konteks Real-World (Relevan dengan materi artikel kelompok)
             const analogiEl = document.getElementById('analogi-text');
-            // Asumsi 1 rumah tangga Indonesia memakai rata-rata ~1.500 kWh/tahun (1,5 MWh/tahun)
             const rumahTangga = Math.round(totalEnergyMWh / 1.5);
-            // Referensi IEA dari artikel kelompok: total AI data center global = 155 TWh
             const persenGlobal = ((totalEnergyTWh / 155) * 100).toFixed(3);
 
             analogiEl.innerHTML = `
