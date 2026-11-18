@@ -47,15 +47,29 @@
             font-size: 1.2rem;
         }
 
-        .home-navbar {
+       .a-navbar {
             text-decoration: none;
-            display: inline-block;
-            transition: transform 0.3s ease;
+            font-size: 1.6rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            transition: all 0.3s ease;
         }
 
-        .home-navbar:hover {
-            transform: scale(1.25) rotate(5deg);
-            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.8));
+        .a-navbar:hover {
+            transform: scale(1.15) translateY(-2px);
+            background: rgba(56, 189, 248, 0.18);
+            border-color: #38bdf8;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+        }
+
+        .li-logo{
+            style="position: absolute; top: 5%; left: 50%; transform: translate(-50%, -50%);"
         }
 
         .hr-navbar {
@@ -350,9 +364,9 @@
     <div class="container-navbar">
         <ul class="ul-navbar">
             <li class="navbar">  
-                <a href="index.html" class="home-navbar">🏠</a>
+                <a href="index.html" class="a-navbar">🏠</a>
             </li>
-            <li class="navbar" style="position: absolute; top: 5%; left: 50%; transform: translate(-50%, -50%);">
+            <li class="li-logo">
                 <img src="images-removebg-preview.png" style="height: 46px; width: 46px; border-radius: 50%; object-fit: cover; background: #fff; border: 1.5px solid rgba(56, 189, 248, 0.45); box-shadow: 0 0 12px rgba(56, 189, 248, 0.25); display: block;">
             </li>
         </ul>
