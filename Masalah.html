@@ -32,6 +32,7 @@
             display: flex;
             align-items: center;
         }
+        
         .ul-navbar {
             list-style: none;
             width: 100%;
@@ -39,6 +40,7 @@
             justify-content: space-between;
             align-items: center;
         }
+        
         .a-navbar {
             text-decoration: none;
             font-size: 1.6rem;
@@ -52,12 +54,24 @@
             border: 1px solid rgba(56, 189, 248, 0.25);
             transition: all 0.3s ease;
         }
+        
         .a-navbar:hover {
             transform: scale(1.15) translateY(-2px);
             background: rgba(56, 189, 248, 0.18);
             border-color: #38bdf8;
             box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
         }
+        
+        .src-logo{
+            height: 46px; 
+            width: 46px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            background: #fff; 
+            border: 1.5px solid rgba(56, 189, 248, 0.45); 
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.25); display: block;
+        }
+        
         .hr-navbar {
             border: none;
             height: 1px;
@@ -193,7 +207,7 @@
                 <a href="index.html" class="a-navbar" title="Beranda">🏠</a>
             </li>
               <li>
-                <img src="images-removebg-preview.png" style="height: 46px; width: 46px; border-radius: 50%; object-fit: cover; background: #fff; border: 1.5px solid rgba(56, 189, 248, 0.45); box-shadow: 0 0 12px rgba(56, 189, 248, 0.25); display: block;">
+                <img src="images-removebg-preview.png" class="src-logo">
             </li>
             <li>
                 <a href="Kalkulator.html" class="a-navbar" title="Kalkulator Energi AI">🧮</a>
