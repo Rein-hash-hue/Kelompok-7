@@ -93,7 +93,6 @@
             font-weight: 600;
         }
 
-        /* Kotak Dua Kolom Solusi */
         .container-baris {
             display: flex;
             flex-direction: row;
@@ -312,6 +311,7 @@
     </style>
 </head>
 <body>
+    <!-- Navbar Start -->
     <div class="container-navbar">
         <ul class="ul-navbar">
             <li>  
@@ -323,13 +323,14 @@
         </ul>
     </div>
     <hr class="hr-navbar">
+    <!-- Navbar End -->
 
+    <!-- Content Start -->
     <main class="main-content0">
         <div class="container-content">
             <h2 class="h2-content">Solusi</h2>
         </div>
-
-        <!-- Dua Kotak Solusi -->
+        
         <div class="container-baris">
             <div class="container-content1">
                 <h3 class="h3-content1">Model dan Prompt yang lebih Ringkas</h3>
@@ -347,8 +348,9 @@
                 <a href="https://eta-publications.lbl.gov/publications/direct-liquid-cooling-electronic" class="sumber-link" target="_blank" rel="noopener noreferrer">Sumber Dokumen LBNL ↗</a>
             </div>
         </div>
+        <!-- Content End -->
 
-        <!-- Wadah Simulasi 3D -->
+        <!-- Simulasi Start-->
         <div class="container-simulasi-3d">
             <div class="simulasi-header">
                 <div class="simulasi-title">
@@ -600,5 +602,6 @@
             renderer.setSize(w, h);
         });
     </script>
+    <!-- Simulasi End -->
 </body>
 </html>
