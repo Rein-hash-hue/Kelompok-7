@@ -1,4 +1,4 @@
-<html lang="id">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,7 @@
             --primary-cyan: #38bdf8;
             --border-glow: rgba(56, 189, 248, 0.28);
         }
+        
         body {
             background-color: #0b1329;
             background-image: 
@@ -29,6 +30,7 @@
             flex-direction: column;
             overflow-x: hidden;
         }
+        
         .container-navbar {
             height: 10vh;
             min-height: 64px;
@@ -83,6 +85,7 @@
             max-width: 920px;
             margin: 0 auto;
         }
+        
         .article-card, .analysis-card {
             background: rgba(30, 41, 59, 0.72);
             backdrop-filter: blur(16px);
@@ -92,6 +95,7 @@
             width: 100%;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
         }
+        
         .article-lead {
             border-left: 4px solid var(--primary-cyan);
             padding-left: 16px;
@@ -99,6 +103,7 @@
             font-size: 1.05rem;
             color: #f1f5f9;
         }
+        
         .section-tag {
             color: var(--primary-cyan);
             font-size: 0.8rem;
@@ -106,12 +111,14 @@
             letter-spacing: 1px;
             font-weight: 600;
         }
+        
         .article-title {
             color: #ffffff;
             font-size: 1.6rem;
             font-weight: 700;
             margin: 6px 0 18px 0;
         }
+        
         .quote-box {
             background: rgba(15, 23, 42, 0.7);
             border: 1px solid rgba(56, 189, 248, 0.25);
@@ -122,6 +129,7 @@
             font-style: italic;
             position: relative;
         }
+        
         .p-body {
             color: #cbd5e1;
             line-height: 1.8;
@@ -130,6 +138,7 @@
             font-weight: 300;
             text-align: justify;
         }
+        
         .graphic-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -137,6 +146,7 @@
             width: 100%;
             margin: 20px 0;
         }
+        
         .graphic-item {
             background: rgba(15, 23, 42, 0.8);
             border: 1px solid var(--border-glow);
@@ -147,13 +157,16 @@
             align-items: center;
             transition: transform 0.25s ease;
         }
+        
         .graphic-item:hover {
             transform: translateY(-4px);
             border-color: var(--primary-cyan);
         }
+        
         .graphic-item img {
             width: 100%;
             height: auto;
+           
             border-radius: 8px;
         }
         .fig-cap {
@@ -163,6 +176,7 @@
             text-align: center;
             font-weight: 500;
         }
+        
         .btn-link {
             display: inline-block;
             text-decoration: none;
@@ -176,10 +190,12 @@
             margin-top: 10px;
             transition: all 0.2s;
         }
+        
         .btn-link:hover {
             transform: translateY(-2px);
             background: #fff;
         }
+        
         .footer-base {
             background: #070d19;
             padding: 18px 6%;
@@ -189,6 +205,26 @@
             border-top: 1px solid rgba(255, 255, 255, 0.06);
             margin-top: auto;
         }
+
+           .about-link {
+            color: #f1f5f9;
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 22px;
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 30px;
+            font-size: 0.88rem;
+            transition: all 0.25s ease;
+        }
+
+        .about-link:hover {
+            background-color: #38bdf8;
+            color: #0b1329;
+            font-weight: 600;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+        }
+        
         @media (max-width: 768px) {
             .graphic-grid { grid-template-columns: 1fr; }
             .article-card, .analysis-card { padding: 22px 18px; }
