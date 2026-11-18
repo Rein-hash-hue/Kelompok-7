@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solusi</title>
-    <!-- Import Google Font: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Three.js & OrbitControls -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 
@@ -46,7 +42,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        .nav-icon-link {
+        .a-navbar {
             text-decoration: none;
             font-size: 1.6rem;
             display: inline-flex;
@@ -59,7 +55,7 @@
             border: 1px solid rgba(56, 189, 248, 0.25);
             transition: all 0.3s ease;
         }
-        .nav-icon-link:hover {
+        .a-navbar:hover {
             transform: scale(1.15) translateY(-2px);
             background: rgba(56, 189, 248, 0.18);
             border-color: #38bdf8;
@@ -173,7 +169,6 @@
             font-weight: 600;
         }
 
-        /* Wadah 3D */
         .container-simulasi-3d {
             background: rgba(30, 41, 59, 0.72);
             backdrop-filter: blur(16px);
@@ -199,7 +194,7 @@
             font-size: 1.25rem;
             font-weight: 600;
         }
-        .badge-analogi {
+        .icon-analogi {
             background: rgba(56, 189, 248, 0.12);
             color: #38bdf8;
             border: 1px solid rgba(56, 189, 248, 0.3);
@@ -221,7 +216,7 @@
         }
         #webgl-container:active { cursor: grabbing; }
 
-        .canvas-hint {
+        .icon-hint {
             position: absolute;
             top: 12px;
             left: 14px;
@@ -260,7 +255,7 @@
             border-color: #38bdf8;
         }
 
-        .info-smk-card {
+        .info-card {
             background: rgba(15, 23, 42, 0.7);
             border-left: 4px solid #38bdf8;
             border-radius: 8px;
@@ -268,13 +263,13 @@
             font-size: 0.88rem;
             line-height: 1.6;
         }
-        .info-smk-title {
+        .info-title {
             color: #38bdf8;
             font-weight: 600;
             font-size: 0.95rem;
             margin-bottom: 4px;
         }
-        .info-smk-analogi {
+        .info-analogi {
             color: #93c5fd;
             font-size: 0.82rem;
             margin-top: 6px;
@@ -320,10 +315,10 @@
     <div class="container-navbar">
         <ul class="ul-navbar">
             <li>  
-                <a href="index.html" class="nav-icon-link" title="Beranda">🏠</a>
+                <a href="index.html" class="a-navbar" title="Beranda">🏠</a>
             </li>
             <li>
-                <a href="Kalkulator.html" class="nav-icon-link" title="Kalkulator Energi AI">🧮</a>
+                <a href="Kalkulator.html" class="a-navbar" title="Kalkulator Energi AI">🧮</a>
             </li>
         </ul>
     </div>
@@ -359,11 +354,11 @@
                 <div class="simulasi-title">
                     🎮 Simulasi 3D: Direct Liquid Cooling & Heat Reuse
                 </div>
-                <span class="badge-analogi">💡 Visualisasi Teknologi Solusi Kanan</span>
+                <span class="icon-analogi">💡 Visualisasi Teknologi Solusi Kanan</span>
             </div>
 
             <div id="webgl-container">
-                <div class="canvas-hint">🖱️ <b>Klik & Geser:</b> Putar 360° | 🔍 <b>Scroll:</b> Zoom</div>
+                <div class="icon-hint">🖱️ <b>Klik & Geser:</b> Putar 360° | 🔍 <b>Scroll:</b> Zoom</div>
             </div>
 
             <div class="controls-3d">
@@ -374,10 +369,10 @@
                 <button type="button" class="btn-3d" onclick="fokusObjek('cdu', this)">4. Radiator CDU</button>
             </div>
 
-            <div class="info-smk-card">
-                <div class="info-smk-title" id="part-title">Sirkulasi Tertutup (Closed-Loop)</div>
+            <div class="info-card">
+                <div class="info-title" id="part-title">Sirkulasi Tertutup (Closed-Loop)</div>
                 <div id="part-desc" style="color: #cbd5e1;">Cairan pendingin dialirkan langsung menyentuh lempengan tembaga di atas cip GPU server AI untuk menyerap panas, lalu panasnya dibuang ke unit penukar panas (CDU) untuk didaur ulang.</div>
-                <div class="info-smk-analogi" id="part-analogi">💡 <b>Analogi SMK:</b> Mirip siklus air radiator motor berputar konstan dari blok mesin ke kisi-kisi radiator tanpa ada air yang terbuang.</div>
+                <div class="info-analogi" id="part-analogi">💡 <b>Analogi SMK:</b> Mirip siklus air radiator motor berputar konstan dari blok mesin ke kisi-kisi radiator tanpa ada air yang terbuang.</div>
             </div>
         </div>
     </main>
